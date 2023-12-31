@@ -59,7 +59,6 @@ class CocktailAPIInterface {
             
             // Convert data (bytes) to a JSON object and notify the delegate about the received data
             do {
-                let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
                 let ingredientList = try? JSONDecoder().decode(Ingredients.self, from: data)
                 let ingredients = ingredientList?.drinks.map { (ingredient) -> String in
                     return ingredient.strIngredient1
