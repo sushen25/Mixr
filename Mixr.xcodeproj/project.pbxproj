@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D18D7C12B427B9700C2B229 /* ShowDrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D18D7C02B427B9700C2B229 /* ShowDrinksViewController.swift */; };
+		6D18D7C32B428D8600C2B229 /* DrinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D18D7C22B428D8600C2B229 /* DrinkTableViewCell.swift */; };
 		6D34450B2B3FB51800945284 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D34450A2B3FB51800945284 /* AppDelegate.swift */; };
 		6D34450D2B3FB51800945284 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D34450C2B3FB51800945284 /* SceneDelegate.swift */; };
 		6D34450F2B3FB51800945284 /* MixrViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D34450E2B3FB51800945284 /* MixrViewControllerViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D18D7C02B427B9700C2B229 /* ShowDrinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDrinksViewController.swift; sourceTree = "<group>"; };
+		6D18D7C22B428D8600C2B229 /* DrinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewCell.swift; sourceTree = "<group>"; };
 		6D3445072B3FB51800945284 /* Mixr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D34450A2B3FB51800945284 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D34450C2B3FB51800945284 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				6D3445152B3FB51800945284 /* LaunchScreen.storyboard */,
 				6D3445182B3FB51800945284 /* Info.plist */,
 				6D34451E2B3FBB9800945284 /* CocktailAPIInterface.swift */,
+				6D18D7C02B427B9700C2B229 /* ShowDrinksViewController.swift */,
+				6D18D7C22B428D8600C2B229 /* DrinkTableViewCell.swift */,
 			);
 			path = Mixr;
 			sourceTree = "<group>";
@@ -142,8 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D34450F2B3FB51800945284 /* MixrViewControllerViewController.swift in Sources */,
+				6D18D7C12B427B9700C2B229 /* ShowDrinksViewController.swift in Sources */,
 				6D34450B2B3FB51800945284 /* AppDelegate.swift in Sources */,
 				6D34451F2B3FBB9800945284 /* CocktailAPIInterface.swift in Sources */,
+				6D18D7C32B428D8600C2B229 /* DrinkTableViewCell.swift in Sources */,
 				6D34450D2B3FB51800945284 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

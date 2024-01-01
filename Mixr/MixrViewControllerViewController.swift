@@ -13,10 +13,13 @@ class MixrViewController: UIViewController, CocktailApiDelegate, UITableViewData
     
     var allIngredients: [String:Bool] = [:]
     var displayIngredients: [String:Bool] = [:]
+    var possibleDrinks: [Drink]?
     
     // MARK: - UI
     @IBOutlet weak var ingredientTableView: UITableView!
     @IBOutlet weak var selectedIngredients: UITextView!
+    
+    let showDrinksSegue: String = "showDrinksSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +29,6 @@ class MixrViewController: UIViewController, CocktailApiDelegate, UITableViewData
         
         ingredientTableView.dataSource = self
         ingredientTableView.delegate = self
-    }
-
-    @IBAction func search(_ sender: Any) {
-        // TODO - search for cocktails
     }
     
     @IBAction func filterIngredients(_ sender: UITextField) {
@@ -47,6 +46,22 @@ class MixrViewController: UIViewController, CocktailApiDelegate, UITableViewData
         }
         
         ingredientTableView.reloadData()
+    }
+    
+    @IBAction func searchForDrinks(_ sender: Any) {
+        let selected = allIngredients.filter {$0.value == true}
+        let selectedList = selected.map { $0.key }
+        if (selectedList.count > 0) {
+            apiInterface.getDrinks(ingredient: selectedList[0])
+        }
+        
+    }
+    
+    
+    func updateSelectedIngredientsText() {
+        let selected = allIngredients.filter {$0.value == true}
+        let selectedList = selected.map { $0.key }
+        selectedIngredients.text = selectedList.joined(separator: ", ")
     }
     
     
@@ -80,11 +95,13 @@ class MixrViewController: UIViewController, CocktailApiDelegate, UITableViewData
         updateSelectedIngredientsText()
     }
     
-    // MARK: - Methods
-    func updateSelectedIngredientsText() {
-        let selected = allIngredients.filter {$0.value == true}
-        let selectedList = selected.map { $0.key }
-        selectedIngredients.text = selectedList.joined(separator: ", ")
+    // MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showDrinksSegue {
+            if let showDrinksViewController = segue.destination as? ShowDrinksViewController {
+                showDrinksViewController.drinks = possibleDrinks!
+            }
+        }
     }
     
     
@@ -101,6 +118,14 @@ class MixrViewController: UIViewController, CocktailApiDelegate, UITableViewData
     }
     
     func didFail(with error: Error) {
+        
+    }
+    
+    func didReceiveDrinksData(_ drinks: [Drink]) {
+        possibleDrinks = drinks
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: self.showDrinksSegue, sender: self)
+        }
         
     }
     
